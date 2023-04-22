@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crear producto - eCommerce</title>
+  <link rel="stylesheet" href="css/compras.css">
+</head>
+
+<body>
+  <h1>Crear producto</h1>
+  <form id="product-form">
+    <label for="ean">Código EAN:</label>
+    <input value="12445534900700" type="text" id="ean" name="product_ean_code" required>
+
+    <label for="name">Nombre del producto:</label>
+    <input value="Gelatina" type="text" id="name" name="product_name" required>
+
+    <label for="description">Descripción del producto:</label>
+    <textarea id="description" name="product_description" required>Here is a desc about gelatina</textarea>
+
+    <label for="brand">Marca:</label>
+    <input value="Frit" type="text" id="brand" name="product_brand" required>
+
+    <label for="units">Unidades disponibles:</label>
+    <input value="12" type="number" id="units" name="product_inventory" min="0" required>
+
+    <label for="price">Precio:</label>
+    <input value="12300" type="number" id="price" name="product_price" min="0" required>
+
+    <button type="submit">Crear producto</button>
+  </form>
+  <script>
+
+
+    const form = document.getElementById('product-form');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const requestData = Object.fromEntries(formData.entries());
+      const response = await fetch('http://localhost:9090/api/v1/product', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+      });
+      const responseData = await response.json();
+      console.log(responseData);
+    });
+
+
+  </script>
+</body>
+
+</html>

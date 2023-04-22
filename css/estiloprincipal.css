@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  width: 100%;
+  background-color: #232f3e;
+  color: #ffffff;
+  padding: 20px;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logo {
+  width: 9%;
+}
+
+.buscador input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+.buscador button {
+  background-color: #ff9900;
+  color: #ffffff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+  color: #4a4e52;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #f1f1f1;
+}
+
+main {
+  margin: 20px;
+
+}
+
+.tarjetas {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+  margin: 90px;
+}
+
+.tarjetas img {
+  width: 300px;
+  height: 300px;
+
+}
+
+.tarjetaproducto {
+  width: calc(100%/3);
+}

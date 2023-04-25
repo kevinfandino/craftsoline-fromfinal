@@ -7,7 +7,7 @@ form.addEventListener("submit", async (event) => {
   const requestData = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch("http://localhost:9090/api/v1/product", {
+    const response = await fetch("http://localhost:8080/api/v1/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

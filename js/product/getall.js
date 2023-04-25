@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:9090/api/v1/product";
+const endpoint = "http://localhost:8080/api/v1/product";
 
 const mesage = document.querySelector("#mesage");
 

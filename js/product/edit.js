@@ -3,7 +3,7 @@ async function getProductData() {
   const productId = urlParams.get("id");
   try {
     const product = await fetch(
-      `http://localhost:9090/api/v1/product/${productId}`
+      `http://localhost:8080/api/v1/product/${productId}`
     );
     const productData = await product.json();
 
@@ -24,6 +24,7 @@ async function getProductData() {
       document.getElementById("price").value = productData.product_price;
     }
   } catch (error) {
+    console.log("error ", error);
     // If the product doesn't exist, show an error message
     document.getElementById("error").textContent = "Error: Product not found";
     // el form debe estar deshabilitado
@@ -70,7 +71,7 @@ formEdit.addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(
-      `http://localhost:9090/api/v1/product/${productId}`,
+      `http://localhost:8080/api/v1/product/${productId}`,
       {
         method: "PUT",
         headers: {

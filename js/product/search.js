@@ -12,7 +12,7 @@ document.getElementById("search").innerHTML = search;
 const products = async () => {
   try {
     const response = await fetch(
-      `http://localhost:9090/api/v1/product/search?word=${search}`
+      `http://localhost:8080/api/v1/product/search?word=${search}`
     );
     const data = await response.json();
 

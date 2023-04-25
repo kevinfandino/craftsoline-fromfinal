@@ -15,7 +15,6 @@ header {
   justify-content: space-between;
 }
 
-
 .logo {
   width: 9%;
 }
@@ -84,4 +83,16 @@ main {
 
 .tarjetaproducto {
   width: calc(100%/3);
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: vertical;
 }

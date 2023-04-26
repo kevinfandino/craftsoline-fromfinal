@@ -83,16 +83,16 @@
         </article>
       </section>
 
-      <body>
-      <h1>Deja tu comentario</h1>
-      <form action="guardar_comentario.php" method="post">
-        <label for="comentario">Comentario:</label>
-        <br>
-        <textarea id="comentario" name="comentario" rows="5" cols="40"></textarea>
-        <br>
-        <button type="submit">Enviar</button>
+      <form>
+        <label for="comentario">Escribe tu comentario:</label><br>
+        <textarea id="comentario" name="comentario"></textarea><br>
+        <input type="button" value="Enviar comentario" onclick="guardarComentario()">
+        <div>
+          <script src="js/comentario.js"></script>
+        </div>
       </form>
-    </body>
+      
+      <ul id="comment-list"></ul>
 
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24444.481346296827!2d-74.08962350398828!3d4.636356362531286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2e545a44b1%3A0x4cf0b8f62e304521!2sUniversidad%20Cat%C3%B3lica%20de%20Colombia%20Sede%20El%20Claustro!5e0!3m2!1ses!2sco!4v1682380596936!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </main>

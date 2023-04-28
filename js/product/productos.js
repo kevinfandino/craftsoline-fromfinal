@@ -20,9 +20,7 @@ async function loadProducts() {
     data.forEach((product) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        
         <td>${product.product_name}</td>
-        
         <td>${product.product_brand}</td>
         <td>${product.product_description}</td>
         <td>${product.product_inventory}</td>

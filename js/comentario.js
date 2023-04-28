@@ -1,3 +1,19 @@
+// Obtener el botón de "Comprar producto" por su ID
+const comprarBtn = document.getElementById('comprar-producto');
+
+// Agregar un manejador de eventos de clic al botón
+comprarBtn.addEventListener('click', () => {
+  // Construir la URL de la página del producto utilizando su ID
+  const productoID = '12345'; // Reemplazar con el ID del producto real
+  const productoURL = `https://tiendavirtual.com/productos/${productoID}`;
+
+  // Redireccionar al usuario a la página del producto
+  window.location.href = productoURL;
+});
+
+
+
+
 function guardarComentario() {
   // Obtener el valor del campo de texto
   var comentario = document.getElementById("comentario").value;
@@ -33,7 +49,6 @@ function guardarComentario() {
 function mostrarComentario() {
 
   const commentList = document.getElementById("comment-list");
-
 
   fetch("http://localhost:8080/api/v1/comments", {
     method: "GET",

@@ -27,7 +27,7 @@ async function loadProducts() {
         <td>${product.product_price}</td>
         <a href="purchase.html?id=${product.product_id}" class="btn btn-warning btn-block my-1">
           <i class="bi bi-pen-fill text-white"></i>
-          </a>
+          </a>  
         `;
       tbody.appendChild(tr);
     });

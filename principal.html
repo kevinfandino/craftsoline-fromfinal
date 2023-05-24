@@ -23,7 +23,7 @@
     <header>
       <img src="./img/craftsoline.jpg" alt="crafstoline - Tienda Online" class="logo">
       <div class="buscador">
-        <form action="product/search.html">
+        <form action="product/search.html" >
           <input type="text" placeholder="Buscar..." name="search" required>
           <button type="submit">Buscar</button>
         </form>
@@ -45,6 +45,9 @@
       </form>
       <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&amp;display=1">Ver carrito</a>
       <a href="product/index.html">Gestion Productos</a>
+      <div class="formulario__grupo formulario__grupo-btn-principal">
+				<p class="principal"><a href="index.html">Login</a></p>
+			</div>
     </header>
 
     <nav>
@@ -60,14 +63,12 @@
     </nav>
 
     <main>
-
       <div id="mesage"></div>
       <table class="table table-striped">
         <thead>
           <tr>
             
             <th>Name</th>
-          
             <th>Brand</th>
             <th>Description</th>
             <th>Inventory</th>
@@ -81,9 +82,7 @@
       </table>
 
       <script src="js/product/productos.js"></script>
-
       </div>
-
 
       <form>
         <label for="comentario">Escribe tu comentario:</label><br>

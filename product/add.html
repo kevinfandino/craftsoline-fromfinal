@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Create product - eCommerce</title>
@@ -13,22 +14,41 @@
 </head>
 
 <style>
-     .quieto{
-      position: sticky;
-      top: 0;
-      margin: 0;
-      color: white;
-      background-color: #232f3e;
-      padding: 8px;
+  .quieto {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    color: white;
+    background-color: #232f3e;
+    padding: 8px;
+  }
+
+  .breadcrumb a {
+    color: #ff9900;
+  }
+    .logo {
+      width: 9%;
     }
-    .breadcrumb a {
-      color: #ff9900;
-    }
+
+    
+header {
+	width: 100%;
+	background-color: #232f3e;
+	color: #ffffff;
+	padding: 20px;
+	display: flex !important;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+  }
 </style>
+
 <body>
 
   <section class="d-flex justify-content-between align-items-center mb-3 quieto px-3 ">
     <h1>Crear producto</h1>
+    <header>
+      <img src="./img/craftsoline.jpg" alt="crafstoline - Tienda Online" class="logo">
   </section>
 
   <div class="container-fluid">
@@ -42,7 +62,6 @@
         </ol>
       </nav>
 
-  
       <h3 id="message"></h3>
       <form id="product-form">
         <label for="ean">Código EAN:</label>
@@ -63,7 +82,7 @@
         <label for="price">Precio:</label>
         <input value="" type="number" id="price" name="product_price" min="0" required>
 
-        <button type="submit" >Crear producto</button>
+        <button type="submit">Crear producto</button>
       </form>
     </div>
 

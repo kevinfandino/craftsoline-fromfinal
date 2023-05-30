@@ -31,7 +31,7 @@ form.addEventListener("submit", async (event) => {
 
       // Después de 3 segundos, redirecciona a la página de productos
       setTimeout(() => {
-        window.location.href = "/product/index.html";
+        window.location.href = "http://127.0.0.1:5500/craftsoline-fromfinal/product/index.html";
       }, 3000);
     } else {
       throw new Error();

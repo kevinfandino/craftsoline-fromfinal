@@ -29,11 +29,15 @@ header {
 	font-size: 16px;
 	resize: vertical;
   }
-  
-  .logo {
-	width: 9%;
+  .imagen_intro{
+	display: block;
   }
-
+  .logo {
+	width: 20% ;
+	border: 0;
+	padding: 0;
+	
+  }
   .buscador input[type="text"] {
 	padding: 5px;
 	border: none;
@@ -214,6 +218,32 @@ textarea {
 .formulario__grupo-incorrecto .formulario__input {
 	border: 3px solid #bb2929;
 }
+
+.boton_carrito_gestion{
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: #ff9900;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 20px;
+	border: none;
+	font-size: 16px;
+	align-items: center;
+	transition: background-color 0.3s ease;
+
+}
+
+.boton_carrito_gestion:hover{
+	background-color: #a76503;
+  color: #fff;
+  text-decoration: none;
+
+}
+.boton:active {
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
+
+	transform: translateY(2px);
+  }
 
 /* ----- -----  Mediaqueries ----- ----- */
 @media screen and (max-width: 800px) {

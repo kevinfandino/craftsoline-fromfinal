@@ -15,8 +15,18 @@ header {
   justify-content: space-between;
 }
 
+.imagen_intro{
+  display: block;
+  margin: 0;
+  width: 30%;
+  overflow: hidden;
+}
+
 .logo {
-  width: 9%;
+  width: 30% ;
+  border: 0;
+  padding: 0;
+  margin: 0%;
 }
 
 .buscador input[type="text"] {
@@ -95,4 +105,33 @@ textarea {
   background-color: #f8f8f8;
   font-size: 16px;
   resize: vertical;
+}
+
+.boton_carrito_gestion{
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: #ff9900;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 20px;
+	border: none;
+	font-size: 16px;
+	align-items: center;
+	transition: background-color 0.3s ease;
+
+}
+
+.boton_carrito_gestion:hover{
+	background-color: #a76503;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+
+
+}
+
+.boton:active {
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
+
+  transform: translateY(2px);
 }

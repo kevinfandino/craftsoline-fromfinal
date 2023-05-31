@@ -47,7 +47,6 @@ function guardarComentario() {
 }
 
 function mostrarComentario() {
-
   const commentList = document.getElementById("comment-list");
 
   fetch("http://localhost:8080/api/v1/comments", {
@@ -57,14 +56,35 @@ function mostrarComentario() {
     .then((comments) => {
       comments.forEach((comment) => {
         const li = document.createElement("li");
-        li.textContent = comment.message;
+        
+        const commentText = document.createElement("span");
+        commentText.textContent = comment.message;
+        li.appendChild(commentText);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Eliminar";
+        deleteButton.addEventListener("click", () => {
+          eliminarComentario(comment.id);
+          li.remove();
+        });
+
+        li.appendChild(deleteButton);
         commentList.appendChild(li);
       });
     })
     .catch((error) => console.error(error));
-
-
 }
 
-
+function eliminarComentario(commentId) {
+  // Hacer una solicitud de eliminación al servidor utilizando el commentId
+  // Por ejemplo, puedes utilizar fetch con el método DELETE:
+  fetch(`http://localhost:8080/api/v1/comments/${commentId}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Realizar cualquier acción adicional después de eliminar el comentario
+    })
+    .catch((error) => console.error(error));
+}
   

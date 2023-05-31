@@ -12,7 +12,7 @@ form.addEventListener("submit", async (event) => {
     if (file) {
       AWS.config.update({
         region: 'América del Sur (São Paulo) sa-east-1', // Reemplaza con la región de tu bucket en S3
-        credentials: new AWS.Credentials('TU_ACCESS_KEY_ID', 'TU_SECRET_ACCESS_KEY') // Reemplaza con tus propias credenciales de AWS
+        credentials: new AWS.Credentials('AKIAUTKSCTQGFZ323BWM', 'mu9qAIyghrYQ/EDYJBgiIM0fwBd7qZCe2wsnxLjH') // Reemplaza con tus propias credenciales de AWS
       });
 
       var fileName = file.name;

@@ -21,7 +21,10 @@
 
   <body>
     <header>
-      <img src="./img/craftsoline.jpg" alt="crafstoline - Tienda Online" class="logo">
+      <a href="principal.html" class="imagen_intro">
+        <img src="./img/craftsoline.jpg" alt="crafstoline - Tienda Online" class="logo" >
+      </a>
+      
       <div class="buscador">
         <form action="product/search.html" >
           <input type="text" placeholder="Buscar..." name="search" required>
@@ -43,10 +46,10 @@
           alt="PayPal - The safer, easier way to pay online!">
         <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
       </form>
-      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&amp;display=1">Ver carrito</a>
-      <a href="product/index.html">Gestion Productos</a>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&amp;display=1" class="boton_carrito_gestion">Ver carrito</a>
+      <a href="product/index.html" class="boton_carrito_gestion">Gestion Productos</a>
       <div class="formulario__grupo formulario__grupo-btn-principal">
-				<p class="principal"><a href="index.html">Login</a></p>
+				<p class="boton_carrito_gestion"> <a href="index.html">Login</a></p>
 			</div>
     </header>
 
@@ -89,12 +92,14 @@
         <textarea id="comentario" name="comentario"></textarea><br>
         <input type="button" value="Enviar comentario" onclick="guardarComentario()">
         <div>
-          <script src="js/comentario.js"></script>
+          <ul id="comment-list"></ul>
         </div>
+        
+      <script src="js/comentario.js"></script>
+      <script>mostrarComentario();</script>
       </form>
-
-      <ul id="comment-list"></ul>
-
+      
+      
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24444.481346296827!2d-74.08962350398828!3d4.636356362531286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2e545a44b1%3A0x4cf0b8f62e304521!2sUniversidad%20Cat%C3%B3lica%20de%20Colombia%20Sede%20El%20Claustro!5e0!3m2!1ses!2sco!4v1682380596936!5m2!1ses!2sco"
         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"

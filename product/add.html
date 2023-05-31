@@ -82,6 +82,11 @@ header {
         <label for="price">Precio:</label>
         <input value="" type="number" id="price" name="product_price" min="0" required>
 
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="imagen">
+          <input type="submit" value="Subir imagen">
+        </form>
+        
         <button type="submit">Crear producto</button>
       </form>
     </div>

@@ -81,12 +81,7 @@ header {
 
         <label for="price">Precio:</label>
         <input value="" type="number" id="price" name="product_price" min="0" required>
-
-        <form action="/upload" method="post" enctype="multipart/form-data">
-          <input type="file" name="imagen">
-          <input type="submit" value="Subir imagen">
-        </form>
-        
+      
         <button type="submit">Crear producto</button>
       </form>
     </div>
@@ -94,4 +89,22 @@ header {
     <script src="../js/product/add.js"></script>
 </body>
 
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subir imagen a S3</title>
+</head>
+<body>
+    <h1>Subir imagen a S3</h1>
+    <form action="<http://kafandino89.s3-website-sa-east-1.amazonaws.com>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="key" value="${filename}">
+        <input type="hidden" name="AWSAccessKeyId" value="<AKIAUTKSCTQGCD4WEFEX>">
+        <input type="hidden" name="acl" value="public-read">
+        <input type="hidden" name="policy" value="<ewogICJleHBpcmF0aW9uIjogIjIwMjQtMDEtMDFUMDA6MDA6MDBaIiwKICAiY29uZGl0aW9ucyI6IFsKICAgIHsiYnVja2V0IjogIjxrYWZhbmRpbm84OT4ifSwKICAgIFsic3RhcnRzLXdpdGgiLCAiJGtleSIsICIiXSwKICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIn0sCiAgICBbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMCwgMTA0ODU3Nl0KICBdCn0=>">
+        <input type="hidden" name="signature" value="<TU_FIRMA>">
+        <input type="file" name="file">
+        <input type="submit" value="Subir imagen">
+    </form>
+</body>
 </html>

@@ -11,12 +11,12 @@ form.addEventListener("submit", async (event) => {
     // Subir la imagen a S3
     if (file) {
       AWS.config.update({
-        region: 'TU_REGION', // Reemplaza con la región de tu bucket en S3
+        region: 'América del Sur (São Paulo) sa-east-1', // Reemplaza con la región de tu bucket en S3
         credentials: new AWS.Credentials('TU_ACCESS_KEY_ID', 'TU_SECRET_ACCESS_KEY') // Reemplaza con tus propias credenciales de AWS
       });
 
       var fileName = file.name;
-      var albumName = 'nombre-de-tu-bucket'; // Reemplaza con el nombre de tu bucket en S3
+      var albumName = 'kafandino89'; // Reemplaza con el nombre de tu bucket en S3
 
       var albumPhotosKey = encodeURIComponent(albumName) + '/';
 
@@ -24,7 +24,7 @@ form.addEventListener("submit", async (event) => {
 
       var upload = new AWS.S3.ManagedUpload({
         params: {
-          Bucket: 'nombre-de-tu-bucket', // Reemplaza con el nombre de tu bucket en S3
+          Bucket: 'kafandino89', // Reemplaza con el nombre de tu bucket en S3
           Key: photoKey,
           Body: file,
           ACL: 'public-read'

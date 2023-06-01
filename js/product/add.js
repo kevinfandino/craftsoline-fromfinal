@@ -10,31 +10,33 @@ form.addEventListener("submit", async (event) => {
   try {
     // Subir la imagen a S3
     if (file) {
+      const region = 'sa-east-1'; // Reemplaza con la región de tu bucket en S3
+      const accessKeyId = 'AKIAUTKSCTQGFZ323BWM'; // Reemplaza con tu propia clave de acceso de AWS
+      const secretAccessKey = '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'; // Reemplaza con tu propia clave de acceso secreta de AWS
+      const bucketName = 'kafandino89'; // Reemplaza con el nombre de tu bucket en S3
+
       AWS.config.update({
-        region: 'América del Sur (São Paulo) sa-east-1', // Reemplaza con la región de tu bucket en S3
-        credentials: new AWS.Credentials('AKIAUTKSCTQGFZ323BWM', 'mu9qAIyghrYQ/EDYJBgiIM0fwBd7qZCe2wsnxLjH') // Reemplaza con tus propias credenciales de AWS
+        region,
+        credentials: new AWS.Credentials(accessKeyId, secretAccessKey)
       });
 
-      var fileName = file.name;
-      var albumName = 'kafandino89'; // Reemplaza con el nombre de tu bucket en S3
+      const fileName = file.name;
+      const albumPhotosKey = encodeURIComponent(bucketName) + '/';
+      const photoKey = albumPhotosKey + fileName;
 
-      var albumPhotosKey = encodeURIComponent(albumName) + '/';
-
-      var photoKey = albumPhotosKey + fileName;
-
-      var upload = new AWS.S3.ManagedUpload({
+      const upload = new AWS.S3.ManagedUpload({
         params: {
-          Bucket: 'kafandino89', // Reemplaza con el nombre de tu bucket en S3
+          Bucket: bucketName,
           Key: photoKey,
           Body: file,
           ACL: 'public-read'
         }
       });
 
-      var promise = upload.promise();
-
+      const promise = upload.promise();
       await promise; // Esperar a que se complete la carga antes de continuar
-      requestData.imagenUrl = upload.httpRequest.endpoint.href + albumName + '/' + fileName;
+
+      requestData.imagenUrl = upload.httpRequest.endpoint.href + albumPhotosKey + fileName;
     }
 
     // Enviar los datos del formulario al servidor
@@ -52,7 +54,7 @@ form.addEventListener("submit", async (event) => {
           <strong>¡Éxito!</strong> Producto agregado correctamente. 
           <small class="text-muted fs-5">Redireccionando...</small>
           <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+            <span class="visually-hidden">Loading...</span>
           </div>
         </div>
       `;
@@ -74,3 +76,43 @@ form.addEventListener("submit", async (event) => {
     message.classList.add("text-danger");
   }
 });
+
+function uploadImage() {
+  const inputFile = document.getElementById("inputFile");
+  const file = inputFile.files[0];
+
+  if (file) {
+    const region = 'sa-east-1'; // Reemplaza con la región de tu bucket en S3
+    const accessKeyId = 'AKIAUTKSCTQGFZ323BWM'; // Reemplaza con tu propia clave de acceso de AWS
+    const secretAccessKey = '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'; // Reemplaza con tu propia clave de acceso secreta de AWS
+    const bucketName = 'kafandino89'; // Reemplaza con el nombre de tu bucket en S3
+
+    AWS.config.update({
+      region,
+      credentials: new AWS.Credentials(accessKeyId, secretAccessKey)
+    });
+
+    const fileName = file.name;
+    const albumPhotosKey = encodeURIComponent(bucketName) + '/';
+    const photoKey = albumPhotosKey + fileName;
+
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        Bucket: bucketName,
+        Key: photoKey,
+        Body: file,
+        ACL: 'public-read'
+      }
+    });
+
+    const promise = upload.promise();
+    promise.then(() => {
+      const imageURL = upload.httpRequest.endpoint.href + albumPhotosKey + fileName;
+      console.log("Imagen subida con éxito. URL:", imageURL);
+    }).catch((error) => {
+      console.error("Error al subir la imagen:", error);
+    });
+  } else {
+    console.log("No se seleccionó ninguna imagen.");
+  }
+}

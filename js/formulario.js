@@ -123,3 +123,47 @@ checkbox.addEventListener("click", function (e) {
 		banderacontrol = false
 	}
 })
+
+document.getElementById('formulario').addEventListener('submit', function(event) {
+	event.preventDefault(); // Evita que el formulario se envíe automáticamente
+  
+	// Obtén los valores de los campos del formulario
+	var username = document.getElementById('usuario').value;
+	var name = document.getElementById('nombre').value;
+	var email = document.getElementById('correo').value;
+	var phone = document.getElementById('telefono').value;
+	var password = document.getElementById('password').value;
+  
+	// Crea un objeto con los datos a enviar a la API
+	var userData = {
+	  user_name: username,
+	  first_name: name,
+	  user_email: email,
+	  phone_number: phone,
+	  password: password
+	};
+  
+	// Realiza una solicitud POST a la API para guardar los datos en la base de datos
+	fetch('http://localhost:8080/api/v1/user', {
+	  method: 'POST',
+	  headers: {
+		'Content-Type': 'application/json'
+	  },
+	  body: JSON.stringify(userData)
+	})
+	.then(function(response) {
+	  if (response.ok) {
+		// Los datos se guardaron correctamente en la base de datos
+		alert('Los datos se guardaron correctamente en la base de datos');
+	  } else {
+		// Hubo un error al guardar los datos en la base de datos
+		alert('Hubo un error al guardar los datos en la base de datos');
+	  }
+	})
+	.catch(function(error) {
+	  // Hubo un error en la solicitud a la API
+	  alert('Hubo un error en la solicitud a la API');
+	  console.error(error);
+	});
+  });
+  

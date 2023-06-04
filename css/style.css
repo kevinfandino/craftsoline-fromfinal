@@ -4,10 +4,106 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: 40px red 30px white 25px blue;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    width: 100%;
+    background-color: #232f3e;
+    color: #ffffff;
+    padding: 20px;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .imagen_intro{
+    display: block;
+    margin: 0;
+    width: 30%;
+    overflow: hidden;
+  }
+  
+  .logo {
+    width: 30% ;
+    border: 0;
+    padding: 0;
+    margin: 0%;
+  }
+  
+  .buscador input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .buscador button {
+    background-color: #ff9900;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px;
+    color: #4a4e52;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .boton_carrito_gestion{
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: #ff9900;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 20px;
+	border: none;
+	font-size: 16px;
+	align-items: center;
+	transition: background-color 0.3s ease;
+
 }
 
+.boton_carrito_gestion:hover{
+	background-color: #a76503;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+
+
+}
+
+.boton:active {
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
+
+  transform: translateY(2px);
+}
 .form-register{
     width: 400px;
     background: #24303c;

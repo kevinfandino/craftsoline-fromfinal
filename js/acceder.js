@@ -1,3 +1,16 @@
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById('contraseña');
+    var passwordToggle = document.querySelector('.password-toggle');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordToggle.textContent = 'Ocultar';
+    } else {
+        passwordInput.type = 'password';
+        passwordToggle.textContent = 'Mostrar';
+    }
+}
+
 document.querySelector('.buttons').addEventListener('click', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
@@ -12,14 +25,14 @@ document.querySelector('.buttons').addEventListener('click', function(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            cuenta: cuenta,
-            contraseña: contraseña
+            user_name: cuenta,
+            password: password
         })
     })
     .then(function(response) {
         if (response.ok) {
             // Las credenciales son correctas, redireccionar a la página principal
-            window.location.href = 'principal.html';
+            window.location.href = 'http://127.0.0.1:5500/craftsoline-fromfinal/principal.html';
         } else {
             // Las credenciales son incorrectas, mostrar mensaje de error
             alert('Usuario o contraseña incorrectos');
@@ -30,4 +43,9 @@ document.querySelector('.buttons').addEventListener('click', function(event) {
         alert('Hubo un error en la solicitud a la API');
         console.error(error);
     });
+});
+
+document.querySelector('.password-toggle').addEventListener('click', function(event) {
+    event.preventDefault();
+    togglePasswordVisibility();
 });

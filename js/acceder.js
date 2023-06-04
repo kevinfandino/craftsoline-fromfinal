@@ -1,16 +1,3 @@
-function togglePasswordVisibility() {
-    var passwordInput = document.getElementById('contraseña');
-    var passwordToggle = document.querySelector('.password-toggle');
-
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        passwordToggle.textContent = 'Ocultar';
-    } else {
-        passwordInput.type = 'password';
-        passwordToggle.textContent = 'Mostrar';
-    }
-}
-
 document.querySelector('.buttons').addEventListener('click', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
 

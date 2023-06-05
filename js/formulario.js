@@ -59,21 +59,11 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-// Importar la librería de hash (crypto-js)
-// Asegúrate de incluir el archivo de la librería en tu proyecto
-// Puedes obtenerlo desde https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js
-
-// ...
-
 const validarPassword2 = () => {
     const inputPassword1 = document.getElementById('password');
     const inputPassword2 = document.getElementById('password2');
 
-    // Encriptar las contraseñas utilizando SHA-256
-    const encryptedPassword1 = CryptoJS.SHA256(inputPassword1.value).toString();
-    const encryptedPassword2 = CryptoJS.SHA256(inputPassword2.value).toString();
-
-    if (encryptedPassword1 !== encryptedPassword2) {
+    if (inputPassword1.value !== inputPassword2.value) {
         document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
         document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
         document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
@@ -116,8 +106,6 @@ formulario.addEventListener('submit', (e) => {
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 	}
-
-
 });
 
 var checkbox = document.getElementById("termino")
@@ -135,13 +123,13 @@ checkbox.addEventListener("click", function (e) {
 		terminos.remove("show")
 		banderacontrol = false
 	}
-})
+});
 
-document.getElementById('formulario').addEventListener('submit', function(event) {
+document.getElementById('formulario').addEventListener('submit', function(submit) {
 	event.preventDefault(); // Evita que el formulario se envíe automáticamente
   
 	// Obtén los valores de los campos del formulario
-	var username = document.getElementById('usuario').value;
+	var cuenta = document.getElementById('usuario').value;
 	var name = document.getElementById('nombre').value;
 	var email = document.getElementById('correo').value;
 	var phone = document.getElementById('telefono').value;
@@ -149,7 +137,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
   
 	// Crea un objeto con los datos a enviar a la API
 	var userData = {
-	  cuenta: username,
+	  cuenta: cuenta,
 	  first_name: name,
 	  user_email: email,
 	  phone_number: phone,
@@ -178,5 +166,4 @@ document.getElementById('formulario').addEventListener('submit', function(event)
 	  alert('Hubo un error en la solicitud a la API');
 	  console.error(error);
 	});
-  });
-  
+});

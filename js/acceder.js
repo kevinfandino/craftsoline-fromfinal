@@ -3,17 +3,17 @@ document.querySelector('.buttons').addEventListener('click', function(event) {
 
     // Obtén los valores de los campos del formulario
     var cuenta = document.getElementById('cuenta').value;
-    var contraseña = document.getElementById('contraseña').value;
+    var password = document.getElementById('password').value;
 
     // Realiza una solicitud a la API para verificar las credenciales
-    fetch('http://localhost:8080/api/v1/login', {
+    fetch('http://localhost:8080/api/v1/access', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             cuenta: cuenta,
-            contraseña: contraseña
+            password: password
         })
     })
     .then(function(response) {

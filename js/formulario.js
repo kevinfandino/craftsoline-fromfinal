@@ -149,7 +149,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
   
 	// Crea un objeto con los datos a enviar a la API
 	var userData = {
-	  user_name: username,
+	  cuenta: username,
 	  first_name: name,
 	  user_email: email,
 	  phone_number: phone,

@@ -12,8 +12,8 @@ document.querySelector('.buttons').addEventListener('click', function(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user_name: cuenta,
-            password: password
+            cuenta: cuenta,
+            contraseña: contraseña
         })
     })
     .then(function(response) {
@@ -32,7 +32,3 @@ document.querySelector('.buttons').addEventListener('click', function(event) {
     });
 });
 
-document.querySelector('.password-toggle').addEventListener('click', function(event) {
-    event.preventDefault();
-    togglePasswordVisibility();
-});

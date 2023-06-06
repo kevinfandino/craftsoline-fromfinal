@@ -7,17 +7,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-widht, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Acceder al sistema</title>
 </head>
+<header>
+    <a href="principal.html" class="imagen_intro">
+        <img src="./img/craftsoline.jpg" alt="crafstoline - Tienda Online" class="logo" >
+      </a>
+	<div class="buscador">
+	  <form action="product/search.html">
+		<input type="text" placeholder="Buscar..." name="search" required>
+		<button type="submit">Buscar</button>
+	  </form>
+	  <label for="idioma">Idioma:</label>
+	  <select id="idioma" name="idioma" onchange="cambiarIdioma()">
+		<option value="es">Español</option>
+		<option value="en">Inglés</option>
+		<option value="fr">Francés</option>
+		<option value="de">Alemán</option>
+		<option value="it">Italiano</option>
+	  </select>
+	</div>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	  <input type="hidden" name="cmd" value="_s-xclick">
+	  <input type="hidden" name="hosted_button_id" value="TU_ID_DE_BOTÓN_PAYPAL_AQUÍ">
+	  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit"
+		alt="PayPal - The safer, easier way to pay online!">
+	  <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+	</form>
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&amp;display=1" class="boton_carrito_gestion">Ver carrito</a>
+	<a href="product/index.html" class="boton_carrito_gestion">Gestion Productos</a>
+</header>
 <body>
     <section class="form-register">
         <h4>Acceder</h4>
+        
+        
         <input class="controls" type="text" name="Nombre de cuenta" id="cuenta" placeholder="Ingrese el nombre de su cuenta">
-        <input class="controls" type="text" name="Contraseña" id="contraseña" placeholder="Ingrese su contraseña">
+        <div class="input-group">
+            <input class="controls" type="password" name="Contraseña" id="password" placeholder="Ingrese su contraseña">
+            
+
+        </div>
         <p>Ver los <a href="#"> Terminos y condiciones</a></p>
         <input class="buttons" type="submit" value="Acceder">
         <p><a href="index.html">¿No tiene cuenta? Registrese</a></p>
     </section>
+
+    <script src="./js/acceder.js"></script>
 </body>
 </html>

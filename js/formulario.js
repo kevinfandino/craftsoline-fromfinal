@@ -68,6 +68,7 @@ const validarPassword2 = () => {
 		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
 		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
 		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).textContent = 'Las contraseñas no coinciden';
 		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
 		campos['password'] = false;
 	} else {
@@ -75,10 +76,25 @@ const validarPassword2 = () => {
 		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
 		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
 		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).textContent = '';
 		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
 		campos['password'] = true;
 	}
 }
+
+const validarRequisitosPassword = () => {
+	const passwordInput = document.getElementById('password');
+	const passwordError = document.querySelector('#grupo__password .formulario__input-error');
+	const caracteresEspeciales = /[!@#$%^&*]/;
+  
+	if (passwordInput.value.length >= 8 && /[a-zA-Z]/.test(passwordInput.value) && /\d/.test(passwordInput.value) && caracteresEspeciales.test(passwordInput.value)) {
+	  passwordError.classList.remove('formulario__input-error-activo');
+	} else {
+	  passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres, una letra, un número y un carácter especial (!@#$%^&*)';
+	  passwordError.classList.add('formulario__input-error-activo');
+	}
+  }
+  
 
 inputs.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
@@ -103,23 +119,63 @@ formulario.addEventListener('submit', (e) => {
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 	}
-
-
 });
 
-var checkbox = document.getElementById("termino")
-var banderacontrol = false
+var checkbox = document.getElementById("termino");
+var banderacontrol = false;
 
 checkbox.addEventListener("click", function (e) {
 	console.log(e.target);
 	console.log(checkbox.checked);
-	var terminos = document.getElementById("terminos")
+	var terminos = document.getElementById("terminos");
 	if (!banderacontrol) {
-		terminos.classList = "show"
-		banderacontrol = true
+		terminos.classList.add("show");
+		banderacontrol = true;
+	} else {
+		terminos.remove("show");
+		banderacontrol = false;
 	}
-	else {
-		terminos.remove("show")
-		banderacontrol = false
-	}
-})
+});
+
+document.getElementById('formulario').addEventListener('submit', function(submit) {
+	event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+	// Obtén los valores de los campos del formulario
+	var cuenta = document.getElementById('usuario').value;
+	var name = document.getElementById('nombre').value;
+	var email = document.getElementById('correo').value;
+	var phone = document.getElementById('telefono').value;
+	var password = document.getElementById('password').value;
+
+	// Crea un objeto con los datos a enviar a la API
+	var userData = {
+		cuenta: cuenta,
+		first_name: name,
+		user_email: email,
+		phone_number: phone,
+		password: password
+	};
+
+	// Realiza una solicitud POST a la API para guardar los datos en la base de datos
+	fetch('http://localhost:8080/api/v1/user', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(userData)
+	})
+		.then(function(response) {
+			if (response.ok) {
+				// Los datos se guardaron correctamente en la base de datos
+				alert('Los datos se guardaron correctamente en la base de datos');
+			} else {
+				// Hubo un error al guardar los datos en la base de datos
+				alert('Hubo un error al guardar los datos en la base de datos');
+			}
+		})
+		.catch(function(error) {
+			// Hubo un error en la solicitud a la API
+			alert('Hubo un error en la solicitud a la API');
+			console.error(error);
+		});
+});
